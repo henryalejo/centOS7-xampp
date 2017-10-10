@@ -12,7 +12,7 @@ To build:
 
 Copy the sources down and do the build-
 
-    # docker build -rm -t <username>/nodejs:centos7 .
+    # docker build -t <username>/nodejs:centos7 .
 
 To run (if port 8080 is open on your host):
 
