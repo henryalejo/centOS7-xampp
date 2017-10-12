@@ -1,0 +1,20 @@
+version: "3.2"
+services:
+  web:
+    image: nodejscentos7_web
+    build: .
+    ports:
+      - "80:80"
+      - "3306:3306"
+      - "22:22"
+    volumes:
+      - type: bind
+        source: dockerlampp
+        target: /opt/lampp
+      - type: bind
+        source: ./share
+        target: /opt/lampp/htdocs/share
+  redis:
+    image: "redis:alpine"
+volumes:
+  dockerlampp:

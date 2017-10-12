@@ -8,9 +8,16 @@
 FROM centos:centos7.1.1503
 MAINTAINER The CentOS Project <cloud-ops@centos.org>
 
+WORKDIR /
+
 RUN yum -y update; yum clean all
 RUN yum -y install epel-release; yum clean all
 RUN yum -y install wget
+RUN yum install -y hostname
+RUN yum install -y net-tools
+RUN yum install -y python-setuptools
+RUN easy_install supervisor
+RUN yum install -y git
 RUN wget https://www.apachefriends.org/xampp-files/5.6.31/xampp-linux-x64-5.6.31-0-installer.run
 RUN chmod +x xampp-linux-x64-5.6.31-0-installer.run
 RUN ./xampp-linux-x64-5.6.31-0-installer.run
@@ -20,10 +27,7 @@ RUN ./xampp-linux-x64-5.6.31-0-installer.run
 
 #RUN cd /src/ && npm install
 
-RUN yum -y install python-setuptools
-RUN easy_install supervisor
-
-
+EXPOSE 22
 EXPOSE 80
 EXPOSE 3306
 
@@ -32,7 +36,7 @@ RUN echo '/opt/lampp/lampp start' >> /startup.sh
 RUN echo '/usr/bin/supervisord -n' >> /startup.sh
 
 COPY supervisord.conf /etc/supervisord.conf
-
+COPY httpd-xampp.conf /opt/lampp/etc/extra/httpd-xampp.conf
 
 #CMD ["opt/lampp/lampp", "start"]
 
@@ -40,4 +44,3 @@ COPY supervisord.conf /etc/supervisord.conf
 
 
 CMD ["sh", "/startup.sh"]
-

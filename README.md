@@ -1,7 +1,7 @@
 dockerfiles-centos-nodejs
 =========================
 
-CentOS 7 dockerfile for nodejs
+CentOS 7 dockerfile Lampp
 
 
 Get Docker version
@@ -29,3 +29,14 @@ To the port that the container is listening on:
 To test:
 
     # curl http://localhost:8080
+
+Some useful docker commands
+
+$ docker exec -it <id> bash
+$ docker ps
+$ docker-compose build
+$ docker-compose up
+$ docker images
+$ docker images -a
+$ docker rmi $(docker images -a -q)
+$ docker rm $(docker ps -a -q)
