@@ -1,4 +1,4 @@
-dockerfiles-centos-nodejs
+dockerfiles-centos7
 =========================
 
 CentOS 7 dockerfile Xampp
