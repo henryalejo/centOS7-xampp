@@ -10,17 +10,20 @@ Get Docker version
 
 To build This project with docker-compose
 
-  # docker-compose build
+    # docker-compose build
 
 To run:
 
-  # docker-compose up
+    # docker-compose up
+
 To use bash with your container
 
-    To get the id
+To get the id
+
     # docker ps
 
-    To connect with bash
+To connect with bash
+
     # docker exec -it <id> bash
 
 
