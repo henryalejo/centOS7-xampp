@@ -15,9 +15,9 @@ RUN yum -y install epel-release; yum clean all
 RUN yum -y install wget
 RUN yum install -y hostname
 RUN yum install -y net-tools
-RUN yum install -y python-setuptools
-RUN easy_install supervisor
-RUN yum install -y git
+RUN yum install -y python-setuptools; yum clean all
+RUN easy_install supervisor; yum clean all
+RUN yum install -y git; yum clean all
 RUN wget https://www.apachefriends.org/xampp-files/5.6.31/xampp-linux-x64-5.6.31-0-installer.run
 RUN chmod +x xampp-linux-x64-5.6.31-0-installer.run
 RUN ./xampp-linux-x64-5.6.31-0-installer.run
