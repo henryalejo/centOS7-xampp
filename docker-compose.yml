@@ -13,7 +13,7 @@ services:
         source: dockerlampp
         target: /opt/lampp
       - type: bind
-        source: ./share
+        source: ~/Documents/cht/henry
         target: /opt/lampp/htdocs/share
   redis:
     image: "redis:alpine"
