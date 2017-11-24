@@ -19,6 +19,7 @@ RUN yum install -y python-setuptools; yum clean all
 RUN easy_install supervisor; yum clean all
 RUN yum install -y git; yum clean all
 RUN yum install -y sysvinit-tools; yum clean all
+RUN yum install -y nano; yum clean all
 RUN wget https://www.apachefriends.org/xampp-files/5.6.31/xampp-linux-x64-5.6.31-0-installer.run
 RUN chmod +x xampp-linux-x64-5.6.31-0-installer.run
 RUN ./xampp-linux-x64-5.6.31-0-installer.run
@@ -38,6 +39,7 @@ RUN echo '/usr/bin/supervisord -n' >> /startup.sh
 
 COPY supervisord.conf /etc/supervisord.conf
 COPY httpd-xampp.conf /opt/lampp/etc/extra/httpd-xampp.conf
+COPY composer.phar /opt/lampp/htdocs/
 
 #CMD ["opt/lampp/lampp", "start"]
 
