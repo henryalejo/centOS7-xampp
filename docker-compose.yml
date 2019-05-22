@@ -1,7 +1,7 @@
 version: "3.2"
 services:
   web:
-    image: centos7_web
+    image: centos7_last
     hostname: Anonymous
     build: .
     ports:
@@ -10,12 +10,12 @@ services:
       - "22:22"
     volumes:
       - type: bind
-        source: dockerlampp
+        source: dockerlampplast
         target: /opt/lampp
       - type: bind
-        source: ~/Documents/cht/share
-        target: /opt/lampp/htdocs/share
+        source: ~/Documents/
+        target: /opt/lampp/htdocs/share/
   redis:
     image: "redis:alpine"
 volumes:
-  dockerlampp:
+  dockerlampplast:
