@@ -5,7 +5,7 @@ services:
     hostname: Anonymous
     build: .
     ports:
-      - "80:80"
+      - "8000:80"
       - "3306:3306"
       - "22:22"
     volumes:
@@ -13,9 +13,11 @@ services:
         source: dockerlampplast
         target: /opt/lampp
       - type: bind
-        source: ~/Documents/
-        target: /opt/lampp/htdocs/share/
+        source: ~/Documents/cht/esteban
+        target: /opt/lampp/htdocs/
   redis:
     image: "redis:alpine"
+    ports:
+      - "6379:6379"
 volumes:
   dockerlampplast:
